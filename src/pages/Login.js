@@ -46,7 +46,7 @@ const Content = styled.div`
 
 
 function Login() {
-  const initialValues = { email: '', color: 'red', firstName: '', lastName: '' }
+  const initialValues = { username: '', password: '' }
   const onSubmit = (values, actions) => {
     console.log(values)
   }
