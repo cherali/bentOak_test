@@ -3,6 +3,7 @@ const secondaryColor = '#80E8D0'
 const yellowColor = '#FFB21A'
 const grayColor = '#C4C4C4'
 const white20Color = '#F4F4F4'
+const iconBgColor = '#b3b3b3'
 
 
 const fontSize = {
@@ -25,6 +26,7 @@ export const theme = {
     yellowColor,
     grayColor,
     white20Color,
+    iconBgColor,
   },
   fontSize,
 }
