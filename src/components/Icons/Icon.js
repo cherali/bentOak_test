@@ -5,6 +5,7 @@ const ICONS = {
   avatar: '/assets/icons/avatar.png',
   edit: '/assets/icons/edit.png',
   hide: '/assets/icons/hide.png',
+  home: '/assets/icons/home.png',
   inbox: '/assets/icons/inbox.png',
   logo: '/assets/icons/logo.png',
   smallLogo: '/assets/icons/logo_large.png',
