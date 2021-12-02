@@ -94,10 +94,32 @@ export const MainStyle = createGlobalStyle`
   }
   
   p, span, strong {
-    font-size: ${p => p.theme.fontSize.xxSmall};
+    font-size: ${p => p.theme.fontSize.normal};
   }
 
   strong {
     font-weight: 700;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${p => p.theme.colors.secondaryColor};
+  }
+
+  input {
+    outline: none;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: ${p => p.theme.colors.primaryColor};
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: ${p => p.theme.colors.primaryColor};
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: ${p => p.theme.colors.primaryColor};
   }
 `
