@@ -2,7 +2,7 @@ const primaryColor = '#262626'
 const secondaryColor = '#80E8D0'
 const yellowColor = '#FFB21A'
 const grayColor = '#C4C4C4'
-const White20Color = '#F4F4F4'
+const white20Color = '#F4F4F4'
 
 
 const fontSize = {
@@ -24,7 +24,7 @@ export const theme = {
     secondaryColor,
     yellowColor,
     grayColor,
-    White20Color,
+    white20Color,
   },
   fontSize,
 }
