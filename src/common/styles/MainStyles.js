@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const MainStyle = createGlobalStyle`
+  @font-face {
+    font-family: IRAN Sans Regular;
+    src: url('/assets/fonts/IRAN Sans Regular.ttf');
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -47,6 +52,7 @@ export const MainStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    font-family: IRAN Sans Regular, tahoma !important;
   }
 
   body {
