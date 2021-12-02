@@ -7,6 +7,8 @@ import { MainStyle } from './common/styles/MainStyles';
 import { theme } from './common/styles/theme';
 import reportWebVitals from './reportWebVitals';
 
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

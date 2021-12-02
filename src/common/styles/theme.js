@@ -4,6 +4,7 @@ const yellowColor = '#FFB21A'
 const grayColor = '#C4C4C4'
 const white20Color = '#F4F4F4'
 const iconBgColor = '#b3b3b3'
+const dangerColor = '#bc281e'
 
 
 const fontSize = {
@@ -27,6 +28,7 @@ export const theme = {
     grayColor,
     white20Color,
     iconBgColor,
+    dangerColor,
   },
   fontSize,
 }

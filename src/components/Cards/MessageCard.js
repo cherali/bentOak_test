@@ -1,9 +1,47 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, Type } from 'react-swipeable-list';
+import { confirmAlert } from 'react-confirm-alert';
 import Icon from '../Icons/Icon';
 
 import 'react-swipeable-list/dist/styles.css';
 
+const ConfirmedStyle = createGlobalStyle`
+  .--confirmation {
+    background-color: #ffffff4d;
+  }
+
+  .--confirmation-content {
+    padding: 1rem;
+    background-color: ${p => p.theme.colors.white20Color};
+    border-radius: 8px;
+
+    .-delete {
+      background-color: ${p => p.theme.colors.dangerColor};
+      color: #fff;
+    }
+
+    .-cancel {
+      background-color: ${p => p.theme.colors.grayColor};
+    }
+    
+    h1 {
+      margin: 1rem 0;
+    }
+  }
+`
+
+const ActionContainer = styled.div`
+  display: flex;
+  gap: 12px;
+`
+
+const Button = styled.button`
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 5px;
+  height: 32px;
+`
 
 const Container = styled.div`
   padding: 0.2rem 0.5rem;
@@ -69,7 +107,35 @@ const DeleteIcon = styled.div`
 
 function MessageCard({ item }) {
 
+  const deleteMessage = () => {
+
+  }
+
   const handleDelete = () => {
+    confirmAlert({
+      overlayClassName: '--confirmation',
+      customUI: ({ onClose }) => {
+        return (
+          <div className='--confirmation-content'>
+            <h1>از حذف این پیام مطمئن هستی؟</h1>
+
+            <ActionContainer>
+
+              <Button className='-cancel' onClick={onClose}>نه</Button>
+              <Button
+                className='-delete'
+                onClick={() => {
+                  deleteMessage()
+                  onClose();
+                }}
+              >
+                آره
+              </Button>
+            </ActionContainer>
+          </div>
+        );
+      }
+    });
   }
 
   const leadingActions = () => (
@@ -86,26 +152,29 @@ function MessageCard({ item }) {
   )
 
   return (
-    <Container>
-      <SwipeableList
-        fullSwipe={false}
-        type={Type.IOS}
-      >
-        <SwipeableListItem
-          leadingActions={leadingActions()}
+    <>
+      <ConfirmedStyle />
+      <Container>
+        <SwipeableList
+          fullSwipe={false}
+          type={Type.IOS}
         >
-          <ImageContainer>
-            <Img src={'/assets/icons/logo.png'} alt='' />
-          </ImageContainer>
+          <SwipeableListItem
+            leadingActions={leadingActions()}
+          >
+            <ImageContainer>
+              <Img src={'/assets/icons/logo.png'} alt='' />
+            </ImageContainer>
 
-          <div>
-            <p>title</p>
-            <p>description</p>
-          </div>
+            <div>
+              <p>title</p>
+              <p>description</p>
+            </div>
 
-        </SwipeableListItem>
-      </SwipeableList>
-    </Container>
+          </SwipeableListItem>
+        </SwipeableList>
+      </Container>
+    </>
   )
 }
 
