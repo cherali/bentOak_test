@@ -48,4 +48,8 @@ export const MainStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  body {
+    direction: rtl;
+  }
 `
