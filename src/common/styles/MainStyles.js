@@ -58,4 +58,46 @@ export const MainStyle = createGlobalStyle`
   body {
     direction: rtl;
   }
+
+  h1, h2, h3, h4, h5, h6, p, span, strong {
+    color: ${p => p.theme.colors.primaryColor};
+  }
+
+  h1 {
+    font-size: ${p => p.theme.fontSize.xLarge};
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: ${p => p.theme.fontSize.large};
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: ${p => p.theme.fontSize.medium};
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: ${p => p.theme.fontSize.normal};
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: ${p => p.theme.fontSize.small};
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: ${p => p.theme.fontSize.xSmall};
+    font-weight: 500;
+  }
+  
+  p, span, strong {
+    font-size: ${p => p.theme.fontSize.xxSmall};
+  }
+
+  strong {
+    font-weight: 700;
+  }
 `
