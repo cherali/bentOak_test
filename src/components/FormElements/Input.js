@@ -61,7 +61,7 @@ function Input({ name, field, form, meta, type = 'text', secure = false, ...prop
       {/* {meta.touched && meta.error && (
         <div className="error">{meta.error}</div>
       )} */}
-      {secure && <IconButton onClick={handleClick}>
+      {secure && <IconButton type='button' onClick={handleClick}>
         <EyeIcon name='hide' />
       </IconButton>}
     </Container>
