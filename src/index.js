@@ -6,16 +6,30 @@ import App from './App';
 import { MainStyle } from './common/styles/MainStyles';
 import { theme } from './common/styles/theme';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react';
+import { configureStore } from './redux/configStore';
 
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
+
+const { store, persistor } = configureStore()
+export const { dispatch } = store
+export const select = s => s(store.getState())
+
+
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Provider store={store}>
       <MainStyle />
       <BrowserRouter>
         <App />
       </BrowserRouter>
+      </Provider>
+    </PersistGate>
     </ThemeProvider>
 
   </React.StrictMode>,
