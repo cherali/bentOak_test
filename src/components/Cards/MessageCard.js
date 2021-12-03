@@ -71,7 +71,7 @@ const Container = styled.div`
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: ${window.innerWidth - 100}px;
+    width: ${document.documentElement.clientWidth - 100}px;
   }
 `
 

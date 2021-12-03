@@ -20,7 +20,7 @@ const Rect = styled.div`
   display: block;
   position: fixed;
   bottom: 0;
-  width: ${(window.innerWidth / 2) - 50}px;
+  width: ${(document.documentElement.clientWidth / 2) - 50}px;
   height: 80px;
   background-color: ${p => p.theme.colors.grayColor};
   z-index: -1;
