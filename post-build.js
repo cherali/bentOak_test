@@ -31,7 +31,7 @@ function makeScript() {
   }
 
   if (glob) {
-    return glob('build/**/*.+(css|js|html|png|jpeg|jpg|svg)', (_, res) => {
+    return glob('build/**/*.+(css|js|html|png|jpeg|jpg|svg|ttf)', (_, res) => {
     // eslint-disable-next-line no-restricted-syntax
       for (const file of res) {
         cacheArray.push(file.replace('build/', '/'));
