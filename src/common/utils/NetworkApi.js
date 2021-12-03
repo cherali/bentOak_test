@@ -72,7 +72,9 @@ function NetworkApi({ method, url, successType, failType, bodyParams, headerPara
       dispatch({ type: failType, payload: err?.response?.data || {} })
       !!fcb && fcb(err.response)
       // log err
-      console.log('err', JSON.stringify(err))
+      if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+        console.log('err', JSON.stringify(err))
+      }
     }
   }
 
