@@ -1,8 +1,8 @@
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Field, Form, Formik } from 'formik'
 import Input from '../FormElements/Input'
+import Spinner from '../Spinner/Spinner'
 
 
 const Row = styled.div`
@@ -25,11 +25,18 @@ const SubmitButton = styled.button`
   font-weight: 700;
   color:${p => p.theme.colors.primaryColor};
   margin-top: 1rem;
+  
+  :disabled {
+    background-color: ${p => p.theme.colors.grayColor};
+    border-color: ${p => p.theme.colors.grayColor};
+  }
 `
 
 
 
 function LoginForm({ initialValues, onSubmit }) {
+
+
   return (
     <Formik
       initialValues={initialValues}
@@ -53,8 +60,7 @@ function LoginForm({ initialValues, onSubmit }) {
           <Link to='/login' >ثبت نام در هوپا</Link>
         </Row>
 
-
-        <SubmitButton type="submit">ورود</SubmitButton>
+        <SubmitButton disabled={props.isSubmitting} type="submit">{props.isSubmitting ? <Spinner size='small' /> : 'ورود'}</SubmitButton>
       </Form>}
     </Formik>
   )
