@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { dispatch, select } from '../../index'
 import { _deleteKey } from './helpers'
+import { toast } from 'react-toastify';
 
 const CancelToken = axios.CancelToken
 let cancel
@@ -51,7 +52,15 @@ function NetworkApi({ method, url, successType, failType, bodyParams, headerPara
 
       // if network connection is not available
       if (err?.request?.readyState === 4 && err?.request?.status === 0) {
-
+        toast.error("خظا در ارتباط با شبکه", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'colored',
+        })
       }
 
       // logout user if token invalid purge user.

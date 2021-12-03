@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
 import App from './App';
 import { MainStyle } from './common/styles/MainStyles';
 import { theme } from './common/styles/theme';
@@ -11,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { configureStore } from './redux/configStore';
 
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const { store, persistor } = configureStore()
 export const { dispatch } = store
@@ -22,14 +23,15 @@ export const select = s => s(store.getState())
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-    <PersistGate loading={null} persistor={persistor}>
-      <Provider store={store}>
-      <MainStyle />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-      </Provider>
-    </PersistGate>
+      <PersistGate loading={null} persistor={persistor}>
+        <Provider store={store}>
+          <MainStyle />
+          <BrowserRouter>
+            <App />
+            <ToastContainer rtl />
+          </BrowserRouter>
+        </Provider>
+      </PersistGate>
     </ThemeProvider>
 
   </React.StrictMode>,

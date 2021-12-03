@@ -125,4 +125,11 @@ export const MainStyle = createGlobalStyle`
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: ${p => p.theme.colors.primaryColor};
   }
+
+
+  @media only screen and (max-width: 576px) {
+    .Toastify__toast-container--bottom-right, .Toastify__toast-container--top-right {
+      right: 0;
+    }
+  }
 `
