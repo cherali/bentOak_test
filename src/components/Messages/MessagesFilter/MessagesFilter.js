@@ -24,23 +24,22 @@ const FilterButton = styled.button`
   font-weight: 700;
 `
 
-function MessagesFilter() {
-  const defaultFilter = 'all'
+function MessagesFilter({ defaultFilter = 'all', onChangeFilter = () => { } }) {
   const [selectedFilter, setSelectedFilter] = useState(defaultFilter)
 
-  const handleFilterClicked = value => () => setSelectedFilter(value)
+  const handleFilterClicked = value => () => {
+    setSelectedFilter(value)
+    onChangeFilter(value)
+  }
 
   const filters = [
     { title: 'all', value: 'all' },
-    { title: 'test1', value: 'test1' },
-    { title: 'some test', value: 'test2' },
-    { title: 'tester', value: 'test3' },
-    { title: 'testery', value: 'test4' },
-    { title: 'shit test', value: 'test5' },
-    { title: 'ss test', value: 'test6' },
-    { title: 'ssfd test', value: 'test7' },
-    { title: '3d test', value: 'test8' },
-    { title: 'we test', value: 'test9' },
+    { title: 'id > 1', value: 1 },
+    { title: 'id > 5', value: 5 },
+    { title: 'id > 10', value: 10 },
+    { title: 'id > 15', value: 15 },
+    { title: 'id > 20', value: 20 },
+    { title: 'id > 25', value: 25 },
   ]
 
 

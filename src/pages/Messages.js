@@ -1,8 +1,15 @@
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 import Icon from '../components/Icons/Icon'
 import MessageCard from '../components/Cards/MessageCard'
 import MessagesFilter from '../components/Messages/MessagesFilter/MessagesFilter'
 import BottomTabNavigation from '../components/BottomTabNavigation/BottomTabNavigation'
+import { getMessages, updateMessages } from '../redux/actions/messageAction'
+import Spinner from '../components/Spinner/Spinner'
+import { useState } from 'react'
+
+getMessages()
+
 
 const Container = styled.div``
 
@@ -39,6 +46,7 @@ const LogoIconContainer = styled.div`
 const Content = styled.div`
   padding-top: 1rem;
   padding-bottom: 130px;
+  text-align: center;
 `
 
 const MenuContainer = styled.div`
@@ -47,6 +55,14 @@ const MenuContainer = styled.div`
 `
 
 function Messages() {
+  const [filter, setFilter] = useState('all')
+  const messageData = useSelector(s => s.messages?.messages) || null
+  const messages = filter === 'all' ? messageData : messageData.filter(r => r.id > filter);
+
+  const handleChangeFilter = filterData => setFilter(filterData)
+
+  const onDeleteMessage = id => updateMessages(messages.filter(r => r.id !== id))
+
   return (
     <Container>
 
@@ -64,25 +80,28 @@ function Messages() {
         <HeaderItemContainer />
       </Header>
 
-      <MessagesFilter />
+      <MessagesFilter
+        defaultFilter={filter}
+        onChangeFilter={handleChangeFilter}
+      />
 
       <Content>
         <MenuContainer>
           <Icon name='menu' />
         </MenuContainer>
 
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
-        <MessageCard />
+        {messages === null && <Spinner size='small' />}
+
+        {messages?.map(message => (
+          <MessageCard
+            key={message.id}
+            item={message}
+            onDeleteMessage={onDeleteMessage}
+          />
+        ))}
+
+        {messages?.length === 0 && <p>لیست خالی است.</p>}
+
       </Content>
 
       <BottomTabNavigation />
