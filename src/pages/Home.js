@@ -21,9 +21,11 @@ const LinkToLogin = styled(Link)`
   margin-top: 1rem;
 `
 function Home() {
+
   return (
     <Container>
       <LinkToLogin to='/login'>ورود</LinkToLogin>
+      <LinkToLogin to='/messages'>پیام ها</LinkToLogin>
     </Container>
   )
 }

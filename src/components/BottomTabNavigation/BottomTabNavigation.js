@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Icon from '../Icons/Icon'
 import SVGIcon from '../Icons/SvgIcon'
@@ -83,6 +84,10 @@ const CenteredIconButton = styled(IconButton)`
 
 
 function BottomTabNavigation() {
+  const navigate = useNavigate()
+
+  const handleHomeClicked = () => navigate('/')
+
   return (
     <Container>
       <LeftRect />
@@ -92,7 +97,7 @@ function BottomTabNavigation() {
         <SVGIcon name='rect' />
       </BackRect>
 
-      <CenteredIconButton>
+      <CenteredIconButton onClick={handleHomeClicked}>
         <Icon name='home' />
       </CenteredIconButton>
 
