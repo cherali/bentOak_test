@@ -1,7 +1,8 @@
 import { routes } from '../routes'
+import { useSelector } from 'react-redux'
 
 export function useAppRoute() {
-  const token = null;
+  const token = useSelector(s => s.user?.token)
   const isLogedIn = !!token;
 
 

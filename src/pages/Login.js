@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import LoginForm from '../components/Forms/LoginForm'
 import Icon from '../components/Icons/Icon'
+import { loginUser } from '../redux/actions/userAction'
 
 const Container = styled.div`
   display: flex;
@@ -47,9 +48,9 @@ const Content = styled.div`
 
 function Login() {
   const initialValues = { username: '', password: '' }
-  const onSubmit = (values, actions) => {
-    console.log(values)
-  }
+
+  const onSubmit = values => loginUser(values)
+
   return (
     <Container>
       <Header>
