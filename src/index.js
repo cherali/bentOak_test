@@ -10,6 +10,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react';
 import { configureStore } from './redux/configStore';
+import Spinner from './components/Spinner/Spinner';
+
 
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,7 +25,7 @@ export const select = s => s(store.getState())
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<Spinner size='small' />} persistor={persistor}>
         <Provider store={store}>
           <MainStyle />
           <BrowserRouter>

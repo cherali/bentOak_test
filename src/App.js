@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useAppRoute } from './hooks/useAppRoute';
 import { withAuth } from './common/utils/withAuth';
+import Spinner from './components/Spinner/Spinner';
 
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -12,7 +13,7 @@ function App() {
   const routesName = appRoute.map(item => item.path);
 
   return (
-    <Suspense fallback={<span>loading...</span>}>
+    <Suspense fallback={<Spinner size='small' />}>
       <Routes>
         {
           appRoute.map((item, i) => {
