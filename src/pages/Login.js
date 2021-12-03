@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import LoginForm from '../components/Forms/LoginForm'
 import Icon from '../components/Icons/Icon'
@@ -47,9 +48,16 @@ const Content = styled.div`
 
 
 function Login() {
+  const navigate = useNavigate()
   const initialValues = { username: '', password: '' }
 
-  const onSubmit = values => loginUser(values)
+  const onLoginSuccess = () => {
+    setTimeout(() => {
+      navigate('/messages')
+    })
+  }
+
+  const onSubmit = values => loginUser(values, onLoginSuccess)
 
   return (
     <Container>

@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const authPath = ['/', '/login', '/register']
+const loginRistrictedPath = authPath.filter(r => r !== '/')
 
 export const withAuth = Cmp => () => {
   const navigate = useNavigate()
@@ -19,9 +20,9 @@ export const withAuth = Cmp => () => {
   }
 
   // if user logedin redirect user 
-  if (!!token && authPath.includes(pathname)) {
+  if (!!token && loginRistrictedPath.includes(pathname)) {
     setTimeout(() => {
-      navigate('/messages')
+      navigate('/')
     })
     return null;
   }

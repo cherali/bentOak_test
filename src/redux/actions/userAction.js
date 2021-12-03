@@ -5,10 +5,10 @@ import {
 } from '../constants'
 
 
-export const loginUser = (data) => NetworkApi({
+export const loginUser = (data, onSuccess) => NetworkApi({
   url: `${authUrl}/login`,
   method: 'post',
   bodyParams: data,
   successType: LOGIN_SUCCESS,
   failType: LOGIN_FAILED,
-}).run()
+}).run(onSuccess)
