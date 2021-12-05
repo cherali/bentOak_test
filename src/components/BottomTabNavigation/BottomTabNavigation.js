@@ -16,22 +16,27 @@ const Container = styled.div`
   background-color: transparent;
 `
 
+const RectContainer = styled.div`
+  width: calc(50% - 70px);
+`
+
 const Rect = styled.div`
   display: block;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  width: ${(document.documentElement.clientWidth / 2) - 50}px;
   height: 80px;
   background-color: ${p => p.theme.colors.grayColor};
   z-index: -1;
 `
 
 const LeftRect = styled(Rect)`
+  width: inherit;
   left: 0;
   border-top-left-radius: 16px;
 `
 
 const RightRect = styled(Rect)`
+  width: inherit;
   right: 0;
   border-top-right-radius: 16px;
 `
@@ -90,8 +95,10 @@ function BottomTabNavigation() {
 
   return (
     <Container>
-      <LeftRect />
-      <RightRect />
+      <RectContainer >
+        <LeftRect />
+        <RightRect />
+      </RectContainer>
 
       <BackRect>
         <SVGIcon name='rect' />
