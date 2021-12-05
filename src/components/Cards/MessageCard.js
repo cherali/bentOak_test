@@ -65,14 +65,6 @@ const Container = styled.div`
     line-height: 1.5rem;
     font-size: ${p => p.theme.fontSize.small};
   }
-
-  p.-cut {
-    overflow: hidden;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: ${document.documentElement.clientWidth - 100}px;
-  }
 `
 
 const ActionContent = styled.div`
@@ -110,6 +102,18 @@ const DeleteIcon = styled.div`
     padding: 0.5rem;
     border-radius: 50%;
     background-color: #000000;
+  }
+`
+
+const TextContainer = styled.div`
+  width: calc(100% - 100px);
+
+  p.-cut {
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
   }
 `
 
@@ -174,10 +178,10 @@ function MessageCard({ item, onDeleteMessage }) {
               <Img src={item.avatar} alt='' />
             </ImageContainer>
 
-            <div>
+            <TextContainer>
               <p>{item.first_name}</p>
               <p className='-cut'>{item.last_name} {item.email} {item.last_name} {item.email}{item.last_name} {item.email}{item.last_name} {item.email}</p>
-            </div>
+            </TextContainer>
 
           </SwipeableListItem>
         </SwipeableList>
